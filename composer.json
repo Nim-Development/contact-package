@@ -1,0 +1,13 @@
+{
+    "name": "nimdevelopment/contact",
+    "description": "A practice contact form package",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+    	"psr-4:": {
+    		"NimDevelopment\\Contact\\":"src/"
+    	}
+    }
+}
