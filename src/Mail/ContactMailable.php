@@ -31,9 +31,20 @@ class ContactMailable extends Mailable
      */
     public function build()
     {
-        return $this->markdown('<packagename>::contact.email')->with([
+
+        //check if view is published to app
+        if(view()->exists('nim-contactform.contact')){
+            return $this->markdown('nim-contactform.contact.email')->with([
+                'message' => $this->message,
+                'name' => $this->name
+            ]);
+        }
+        
+        return $this->markdown('contact::contact.email')->with([
             'message' => $this->message,
             'name' => $this->name
         ]);
+
+        
     }
 }

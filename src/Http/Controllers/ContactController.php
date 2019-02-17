@@ -11,7 +11,12 @@ use Illuminate\Support\Facades\Mail;
 class ContactController extends Controller
 {
     public function index(){
-    	return view('<packagename>::contact');
+
+        //check if view is published to app
+        if(view()->exists('nim-contactform.contact')){
+            return view('nim-contactform.contact');
+        }
+    	return view('contact::contact');
     }
 
     public function send(Request $request){
