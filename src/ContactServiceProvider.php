@@ -7,6 +7,14 @@ use NimDevelopment\Contact\Facades\Classes\ContactForm;
 
 class ContactServiceProvider extends ServiceProvider
 {
+
+	public function register(){
+		
+		$this->app->bind('contact-FormBuilder', function(){
+			return new ContactForm();
+		});
+	}
+
 	public function boot(){
 		$this->loadRoutesFrom(__DIR__.'/routes/web.php');
 		$this->loadViewsFrom(__DIR__.'/views', 'contact');
@@ -22,13 +30,6 @@ class ContactServiceProvider extends ServiceProvider
 			__DIR__.'/config/contact.php' => config_path('ContactForm.php'),
 			__DIR__.'/views' => 'resources/views/ContactForm'
 		]);
-	}
-
-	public function register(){
-		
-		$this->app->bind('contact-FormBuilder', function(){
-			return new ContactForm();
-		});
 	}
 }
 

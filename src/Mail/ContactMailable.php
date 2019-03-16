@@ -40,6 +40,7 @@ class ContactMailable extends Mailable
             ]);
         }
         
+        //else use package view
         return $this->markdown('contact::contact.email')->with([
             'message' => $this->message,
             'name' => $this->name
